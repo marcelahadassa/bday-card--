@@ -1,19 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-}
-
-.outside, .inside {
-    left: 50.1%;
-}
-
-.card {
+  }
+  body {
+    background-color: #AD0203;
+  }
+  .card {
+    width: 640px;
+    height: 400px;
+    position: absolute;
     margin: auto;
     left: 0;
     right: 0;
@@ -22,63 +19,78 @@
     -webkit-perspective: 1200px;
     perspective: 1200px;
     transition: 1s;
-}
+  }
 
-.card:hover {
+  .front-image {
+    width: 25%;
+  }
+
+  @media only screen and (max-width: 450px) {
+    .card{
+        width: 375px;
+        height: 300px;
+    }
+  }  
+
+  .card:hover {
     transform: rotate(-5deg);
-}
-
-.card:hover .outside {
+  }
+  .card:hover .outside {
     transform: rotateY(-130deg);
-}
-.inside {
-    background: linear-gradient(to right, #e0e0e0, #ffffff 30%);
-    line-height: 1.5;
-    padding: 20px;
+  }
+  .outside,
+  .inside {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 50.1%;
+  }
+  .inside {
+    background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
+    line-height: 3;
+    padding: 0 20px;
     text-align: center;
-    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    overflow-wrap: break-word;
-    left: 50%;
-    
-}
-.png {
-    width: 100%;
-    height: auto;
-    max-width: 300px; /* Ajuste conforme necessário */
-    max-height: 300px; /* Ajuste conforme necessário */
-    display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: -50px; /* Ajuste o valor conforme necessário */
-}
-
-.png img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-
-.outside {
+    left: 50%;
+  }
+  .outside {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     z-index: 1;
     transform-origin: left;
     transition: 2s;
-}
-
-.front, .back {
+    cursor: pointer;
+  }
+  .front,
+  .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transform: rotateX(0deg);
-
-}
-
-
-.back {
+    display: flex;
+    flex-direction: column;
+  }
+  .front {
+    background-color: #ffffff;
+  }
+  .back {
     transform: rotateY(180deg);
-    background: linear-gradient(to left, #e0e0e0, #ffffff 30%);
-}
+    background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+  }
+    .outside p {
+    font-size: 23px;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 6px;
+    color: #000046;
+  }
+  .inside h1 {
+    font-size: 120px;
+    line-height: 120px;
+  }
